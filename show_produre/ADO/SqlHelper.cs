@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Configuration;
 namespace show_produre.ADO
 {
-    class sqlConnect
+    class SqlHelper
     {
         private SqlConnection sqlcon;
 

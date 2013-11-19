@@ -73,7 +73,7 @@ namespace show_produre
                  database = this.txtdbname.Text.ToString();
             }
             
-             ADO.sqlConnect conn = new sqlConnect();
+             ADO.SqlHelper conn = new SqlHelper();
              conn.setConstring(data, uid, pwd, database);
              MessageBox.Show("123");
              cbboxGetdata(data, uid, pwd);
@@ -108,7 +108,7 @@ namespace show_produre
         /// <param name="pwd"></param>
         public void cbboxGetdata(string data,string uid,string pwd)
         {
-            ADO.sqlConnect conn = new sqlConnect();
+            ADO.SqlHelper conn = new SqlHelper();
             cboxdb.DataSource = conn.getresult("select name from master..sysdatabases ");
            // cboxdb.
             cboxdb.DisplayMember = "name";
@@ -126,7 +126,7 @@ namespace show_produre
 
 
             // 获取父节点的数据源
-            ADO.sqlConnect conn = new sqlConnect();
+            ADO.SqlHelper conn = new SqlHelper();
             string sql = "select type,(case type when 'P' then '存储过程' when 'TR' then '触发器'when 'FN' then '函数' when 'V' then '视图' else '其它' end)name from sysobjects where type in('P','TR','FN','V')group by type";
             DataTable dt = conn.getresult(sql);
 
@@ -153,7 +153,7 @@ namespace show_produre
 
         public void AddSubNode(TreeNode ParentNode,string constr)
         {
-            ADO.sqlConnect conn = new sqlConnect();
+            ADO.SqlHelper conn = new SqlHelper();
             string sql="select name,type from sysobjects where type ="+"'"+ParentNode.Tag.ToString()+"'"+"order by name";
             //string sql1 = "select name,type from sysobjects where name =" + "'sp_decrypt"+"'"+"and type= " + "'" + ParentNode.Tag.ToString() + "'" + "order by name";
                 
@@ -212,7 +212,7 @@ namespace show_produre
 
             TreeNode node = treeviewdata.SelectedNode;
             //txtshow.Text = node.Text.ToString();
-            sqlConnect conn = new sqlConnect();
+            SqlHelper conn = new SqlHelper();
            // 
             try
             {

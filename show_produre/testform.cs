@@ -19,7 +19,7 @@ namespace show_produre
 
         private void btntest_Click(object sender, EventArgs e)
         {
-            sqlConnect connect = new sqlConnect();
+            SqlHelper connect = new SqlHelper();
 
            // dgv_showdata.DataSource = connect.getresult("select name, type from sysobjects where type in('P','TR')");
             //dgv_showdata.DataSource = connect.getresult("pr_gettable_parm","P");
