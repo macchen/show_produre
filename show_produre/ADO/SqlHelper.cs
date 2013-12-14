@@ -35,7 +35,13 @@ namespace show_produre.ADO
 
 
     
-
+        /// <summary>
+        /// 设置连接字符串
+        /// </summary>
+        /// <param name="datasource"></param>
+        /// <param name="uid"></param>
+        /// <param name="pwd"></param>
+        /// <param name="dbname"></param>
         public void setConstring(string datasource, string uid, string pwd, string dbname)
         {
             string newname = "connStr";
@@ -108,11 +114,11 @@ namespace show_produre.ADO
                     
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
-                //throw;
-                close_connect();
+                throw ex;
+                //close_connect();
             }
             
         }
